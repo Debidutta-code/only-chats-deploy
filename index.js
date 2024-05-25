@@ -13,7 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://test1234:test1234@cluster0.2mh3n37.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY || "hellodevthisisme"
-const allowedOrigins = ['http://localhost:3000', 'http://localhost:8080'];
+const allowedOrigins = ['http://localhost:3000', 'http://localhost:8080', 'https://onlychats-git-main-debidutta-codes-projects.vercel.app'];
 
 let corsOptions;
 if(process.env.NODE_ENV === "production"){
