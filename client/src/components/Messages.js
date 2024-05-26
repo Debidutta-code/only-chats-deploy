@@ -48,9 +48,7 @@ const MessagesComponent = ({ setIsProfileClicked, isAnyOnesChatOpen, contactClic
     const {notification, setNotification} = useUser();
     
     useEffect(() => {
-        socket = io(ENDPOINT, {
-            transports: ['websocket', 'polling']
-        });
+        socket = io(ENDPOINT);
 
         socket.emit("setup", userId);
 
