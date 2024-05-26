@@ -85,8 +85,8 @@ const SearchResult = ({ setIsSearchFocused, searchedName, setIsNewChatCreated })
                             </p>
                         </div>
                         <div className='search-result-user-gender-component'>
-                            {user.gender === 1 && <PiGenderMaleFill />}
-                            {user.gender === 0 && <PiGenderFemaleFill />}
+                            {user.gender === "male" && <PiGenderMaleFill />}
+                            {user.gender === "female" && <PiGenderFemaleFill />}
                         </div>
                     </div>
                 ))}
