@@ -445,11 +445,13 @@ const server = app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
 });
 
-const io = require('socket.io')(server, {
+const io = socketIo(server, {
   cors: {
-      origin: "https://onlychats.vercel.app",
-      methods: ["GET", "POST"]
-  }
+      origin: "*",
+      methods: ["GET", "POST"],
+      credentials: true
+  },
+  transports: ['websocket', 'polling']
 });
 
 io.on("connection", (socket) => {
