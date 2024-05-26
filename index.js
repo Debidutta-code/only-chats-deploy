@@ -446,11 +446,10 @@ const server = app.listen(PORT, () => {
 });
 
 const io = require('socket.io')(server, {
-  cors: {
-    origin: "https://onlychats.vercel.app",
-  },
-  pingTimeout: 120000,
+  transports: ['polling', 'websocket'],
+  pingTimeout: 60000, // Adjust the timeout value as needed
 });
+
 
 io.on("connection", (socket) => {
   console.log("socket.io connection established");
