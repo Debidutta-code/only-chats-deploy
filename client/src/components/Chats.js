@@ -26,7 +26,9 @@ const ChatsList = ({ setIsProfileClicked, setIsAnyOnesChatOpen, isNewChatCreated
     const [prevContactClicked, setPrevContactClicked] = useState(contactClicked);
 
     useEffect(() => {
-        socket = io(ENDPOINT);
+        socket = io(ENDPOINT, {
+            transports: ['websocket', 'polling']
+        });
 
         socket.emit('setup', userId);
 
