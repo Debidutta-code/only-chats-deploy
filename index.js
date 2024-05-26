@@ -445,11 +445,14 @@ const server = app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
 });
 
-const io = require('socket.io')(server, {
-  transports: ['polling', 'websocket'],
-  pingTimeout: 60000, // Adjust the timeout value as needed
+const io = socketIo(server, {
+  cors: {
+      origin: "*", // Adjust as necessary
+      methods: ["GET", "POST"],
+      transports: ['websocket', 'polling'],
+      allowEIO3: true // Enable compatibility with older versions if necessary
+  }
 });
-
 
 io.on("connection", (socket) => {
   console.log("socket.io connection established");
