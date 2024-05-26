@@ -48,7 +48,7 @@ const MessagesComponent = ({ setIsProfileClicked, isAnyOnesChatOpen, contactClic
     const {notification, setNotification} = useUser();
     
     useEffect(() => {
-        socket = io(ENDPOINT);
+        socket = io("https://onlychats.vercel.app");
 
         socket.emit("setup", userId);
 

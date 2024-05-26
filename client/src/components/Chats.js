@@ -26,7 +26,7 @@ const ChatsList = ({ setIsProfileClicked, setIsAnyOnesChatOpen, isNewChatCreated
     const [prevContactClicked, setPrevContactClicked] = useState(contactClicked);
 
     useEffect(() => {
-        socket = io(ENDPOINT);
+        socket = io("https://onlychats.vercel.app");
 
         socket.emit('setup', userId);
 
