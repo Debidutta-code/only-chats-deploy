@@ -28,9 +28,20 @@ const ChatsList = ({ setIsProfileClicked, setIsAnyOnesChatOpen, isNewChatCreated
     useEffect(() => {
         socket = io(ENDPOINT);
 
-        socket.emit("setup", userId);
+        socket.emit('setup', userId);
 
-        socket.on('connected', () => setSocketConnected(true));  // Corrected event name
+        socket.on('connected', () => setSocketConnected(true));
+
+        socket.on('connect_error', (err) => {
+            console.error('Connection error:', err);
+        });
+
+        // Cleanup on component unmount
+        return () => {
+            if (socket) {
+                socket.disconnect();
+            }
+        };
     }, [userId]);
 
     // console.log(notification, "-------------------------");
